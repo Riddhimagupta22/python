@@ -1,0 +1,82 @@
+import random
+
+def say(msg):
+    print("Chatbot:", msg)
+
+def hello(payload):
+    say("Hey!")
+
+def whisper(payload):
+    msg = ' '.join(payload)
+    say(msg.lower())
+
+def multiply(payload):
+    if len(payload) < 2:
+        say("provide only 2 numbers.")
+        return
+    try:
+        num1 = float(payload[0])
+        num2 = float(payload[1])
+        result = num1 * num2
+        say(f"{num1:.4f} * {num2:.4f} = {result:.4f}")
+    except:
+       say("Please provide two numbers to multiply.")
+
+def count(payload):
+    try:
+        if len(payload) == 1:
+            n = int(payload[0])
+            start = 1
+        else:
+            start = int(payload[0])
+            n = int(payload[1])
+        total = 0
+        for i in range(start, start + n):
+            say(str(i))
+            total += i
+        say("Sum is " + str(total))
+    except:
+        say("Please provide valid numbers.")
+
+topics = ["Algorithms and Flowcharts", "Variables and Expressions", "Branching", "Loops",
+          "Strings and Lists", "Files and Exceptions", "Data Structures", "Functions",
+          "Modules and Packages", "Object-Oriented Programming", "Recursion", "Testing and Debugging"]
+
+def topic(payload):
+    if len(payload) > 0:
+        name = ' '.join(payload)
+        if name in topics:
+            idx = topics.index(name) + 1
+            say("Topic " + str(idx) + ": " + name)
+        else:
+            say("Topic not found.")
+    else:
+        t = random.choice(topics)
+        i = topics.index(t) + 1
+        say("Topic " + str(i) + ": " + t)
+
+# Chat loop
+while True:
+    user_input = input("You: ")
+    if user_input.lower() == 'bye':
+        say("Bye!")
+        break
+    if user_input.startswith('!'):
+        parts = user_input.split()
+        cmd = parts[0]
+        args = parts[1:]
+
+        if cmd == "!hello":
+            hello(args)
+        elif cmd == "!whisper":
+            whisper(args)
+        elif cmd == "!multiply":
+            multiply(args)
+        elif cmd == "!count":
+            count(args)
+        elif cmd == "!topic":
+            topic(args)
+        else:
+            say("Command not found.")
+    else:
+        say("Please enter a command starting with ! or type 'bye' to exit.")
