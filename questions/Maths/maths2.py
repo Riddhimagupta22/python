@@ -1,4 +1,28 @@
- # Armstrong  number in an interval
+# HCF 
+print (" To find HCF")
+def hcf(num1,num2):
+     
+     if num1>num2:
+           smaller = num2
+     else: 
+           smaller = num1 
+     
+     for num in range( 1 , smaller + 1):
+          if ( num1 % num == 0 and num2 % num ==0):
+               result = num
+     return result
+
+number1 = int(input("Enter first number :-"))
+number2 = int(input("Enter second number :-"))
+
+hcf_result = hcf(number1,number2)
+
+print(f"HCF of {number1} and {number2} is:-{hcf_result}")
+print()
+
+
+
+# Armstrong  number in an interval
 print("To check Armstrong  number in an interval")
 
 def armStrong(num):
