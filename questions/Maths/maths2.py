@@ -1,5 +1,20 @@
+# To find the factors of number
+
+print("To find the factors of number")
+
+def factor_of_num(number):
+     
+     print (f"The factors of {number} is :-",end=" ")
+     for i in range( 1, number + 1):
+            if number % i == 0 :
+               print ( i,end = " ")
+     print ()         
+
+number = int(input("Enter a number :-"))
+factor_of_num(number)  
+           
 # HCF 
-print (" To find HCF")
+print ("To find HCF")
 def hcf(num1,num2):
      
      if num1>num2:

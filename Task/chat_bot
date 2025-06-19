@@ -3,33 +3,33 @@ import random
 def say(msg):
     print("Chatbot:", msg)
 
-def hello(payload):
+def hello():
     say("Hey!")
 
-def whisper(payload):
-    msg = ' '.join(payload)
+def whisper():
+    msg = ' '.join()
     say(msg.lower())
 
-def multiply(payload):
-    if len(payload) < 2:
+def multiply():
+    if len() < 2:
         say("provide only 2 numbers.")
         return
     try:
-        num1 = float(payload[0])
-        num2 = float(payload[1])
+        num1 = float([0])
+        num2 = float([1])
         result = num1 * num2
         say(f"{num1:.4f} * {num2:.4f} = {result:.4f}")
     except:
        say("Please provide two numbers to multiply.")
 
-def count(payload):
+def count():
     try:
-        if len(payload) == 1:
-            n = int(payload[0])
+        if len() == 1:
+            n = int([0])
             start = 1
         else:
-            start = int(payload[0])
-            n = int(payload[1])
+            start = int([0])
+            n = int([1])
         total = 0
         for i in range(start, start + n):
             say(str(i))
@@ -42,9 +42,9 @@ topics = ["Algorithms and Flowcharts", "Variables and Expressions", "Branching",
           "Strings and Lists", "Files and Exceptions", "Data Structures", "Functions",
           "Modules and Packages", "Object-Oriented Programming", "Recursion",]
 
-def topic(payload):
-    if len(payload) > 0:
-        name = ' '.join(payload)
+def topic():
+    if len() > 0:
+        name = ' '.join()
         if name in topics:
             idx = topics.index(name) + 1
             say("Topic " + str(idx) + ": " + name)
@@ -67,15 +67,15 @@ while True:
         args = parts[1:]
 
         if cmd == "!hello":
-            hello(args)
+            hello()
         elif cmd == "!whisper":
-            whisper(args)
+            whisper()
         elif cmd == "!multiply":
-            multiply(args)
+            multiply()
         elif cmd == "!count":
-            count(args)
+            count()
         elif cmd == "!topic":
-            topic(args)
+            topic()
         else:
             say("Command not found.")
     else:
