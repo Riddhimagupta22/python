@@ -1,14 +1,14 @@
 import json
 
 def cmd():
-    print ("1) Add Task\n2) View Task\n3) Search Task\n4) Update Task\n5) Delete Task\n6) Exit\n")
+    print ("1) Add Contact\n2) View Contact\n3) Search Contact\n4) Update Contact\n5) Delete Contact\n6) Exit\n")
 
 def load_contacts():
     try:
         with open("contact.json","r") as f:
             return json.load(f)
     except FileNotFoundError:  
-        pass
+        return{}
 
 
 def save_contacts(contacts):
