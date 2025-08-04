@@ -1,0 +1,25 @@
+
+n = int(input("Enter the number of elements in the array: "))
+
+array = [0] * n  
+print("Enter the elements:")
+for i in range(n):
+    array[i] = int(input(f"Element {i + 1}: "))
+
+print("Original Array:", array)
+
+position = int(input("Enter the position to delete (0-based index): "))
+
+
+if 0 <= position < n:
+    for i in range(position, n - 1):
+        array[i] = array[i + 1]
+    n -= 1  
+    
+   
+    print("Array after deletion:", end=" ")
+    for i in range(n):
+        print(array[i], end=" ")
+    print()
+else:
+    print("Invalid position! Deletion failed.")

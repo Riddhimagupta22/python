@@ -1,0 +1,15 @@
+
+n = int(input("Enter the number of elements in the array: "))
+
+
+array = [0] * n  
+print("Enter the elements:")
+for i in range(n):
+    array[i] = int(input(f"Element {i + 1}: "))
+
+total = 0
+for i in range(n):
+    total = total + array[i]
+
+
+print(f"Sum of all elements in the array:{total}")

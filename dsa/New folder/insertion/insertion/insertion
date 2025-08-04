@@ -1,0 +1,26 @@
+rows = int(input("Enter number of rows: "))
+cols = int(input("Enter number of columns: "))
+
+print(f"\nEnter the {rows} rows with {cols} space-separated numbers each:")
+matrix = []
+for i in range(rows):
+    row = list(map(int, input(f"Row {i+1}: ").split()))
+    if len(row) != cols:
+        print("Invalid number of elements in the row!")
+        exit()
+    matrix.append(row)
+
+key = int(input("\nEnter the element to search: "))
+found = False
+
+for i in range(rows):
+    for j in range(cols):
+        if matrix[i][j] == key:
+            print(f"Element {key} found at position: ({i}, {j})")
+            found = True
+            break
+    if found:
+        break
+
+if not found:
+    print(f"Element {key} not found in the matrix.")

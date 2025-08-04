@@ -1,0 +1,19 @@
+n = int(input("Enter the number of elements in the array: "))
+
+
+array = []
+print("Enter the elements:")
+for i in range(n):
+    val = int(input(f"Element {i + 1}: "))
+    array.append(val)
+
+print("Original Array:", array)
+
+element = int(input("Enter the element to insert: "))
+position = int(input("Enter the position to insert at (0-based index): "))
+
+if 0 <= position <= len(array):
+    array.insert(position, element)
+    print("Array after insertion:", array)
+else:
+    print("Invalid position! Insertion failed.")

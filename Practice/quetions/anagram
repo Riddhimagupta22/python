@@ -1,0 +1,19 @@
+def is_anagram(a,b):
+    if(len(a) != len(b)): 
+       print("Not an anagram")
+    else:
+        change_a = a.lower()
+        change_b = b.lower()
+        a_sorted = sorted(change_a)
+        b_sorted = sorted(change_b) 
+        if a_sorted == b_sorted:
+            print("Is an Anagram") 
+        else: 
+            print("Not an anagram")   
+       
+
+String1 = input("Enter a word:- ")
+String2 = input("Enter a word:- ")
+
+is_anagram(String1,String2j)
+

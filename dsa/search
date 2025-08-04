@@ -1,0 +1,22 @@
+
+n = int(input("Enter the number of elements in the array: "))
+
+
+array = [0] * n  
+print("Enter the elements:")
+for i in range(n):
+    array[i] = int(input(f"Element {i + 1}: "))
+
+target = int(input("Enter the element to search: "))
+
+
+found = False
+for i in range(n):
+    if array[i] == target:
+        print(f"Element {target} found at index {i}.")
+        found = True
+        break
+
+
+if not found:
+    print(f"Element {target} not found in the array.")
